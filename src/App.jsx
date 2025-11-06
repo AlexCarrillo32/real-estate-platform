@@ -7,6 +7,9 @@ import PropertyDetails from './pages/PropertyDetails'
 import Login from './pages/Login'
 import Register from './pages/Register'
 import ProtectedRoute from './components/auth/ProtectedRoute'
+import Dashboard from './pages/admin/Dashboard'
+import PropertyManagement from './pages/admin/PropertyManagement'
+import PropertyForm from './pages/admin/PropertyForm'
 import ChatWidget from './components/common/ChatWidget'
 
 // Create a client for React Query
@@ -32,11 +35,37 @@ function App() {
             <Route path="/properties/:id" element={<PropertyDetails />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
+
+            {/* Admin Routes */}
             <Route
               path="/admin"
               element={
                 <ProtectedRoute requiredRole="admin">
-                  <div className="p-4">Admin Dashboard - Coming Soon</div>
+                  <Dashboard />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/admin/properties"
+              element={
+                <ProtectedRoute requiredRole="admin">
+                  <PropertyManagement />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/admin/properties/new"
+              element={
+                <ProtectedRoute requiredRole="admin">
+                  <PropertyForm />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/admin/properties/edit/:id"
+              element={
+                <ProtectedRoute requiredRole="admin">
+                  <PropertyForm />
                 </ProtectedRoute>
               }
             />
