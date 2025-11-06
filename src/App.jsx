@@ -4,6 +4,9 @@ import Navbar from './components/layout/Navbar'
 import Home from './pages/Home'
 import Properties from './pages/Properties'
 import PropertyDetails from './pages/PropertyDetails'
+import Login from './pages/Login'
+import Register from './pages/Register'
+import ProtectedRoute from './components/auth/ProtectedRoute'
 import ChatWidget from './components/common/ChatWidget'
 
 // Create a client for React Query
@@ -27,13 +30,15 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/properties" element={<Properties />} />
             <Route path="/properties/:id" element={<PropertyDetails />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
             <Route
               path="/admin"
-              element={<div className="p-4">Admin Dashboard - Coming Soon</div>}
-            />
-            <Route
-              path="/login"
-              element={<div className="p-4">Login Page - Coming Soon</div>}
+              element={
+                <ProtectedRoute requiredRole="admin">
+                  <div className="p-4">Admin Dashboard - Coming Soon</div>
+                </ProtectedRoute>
+              }
             />
           </Routes>
 
