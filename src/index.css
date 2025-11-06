@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 @theme {
   --color-primary-50: #f0f9ff;
@@ -20,4 +20,3 @@ body {
 .container {
   @apply mx-auto px-4 max-w-7xl;
 }
-

@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import Navbar from './components/layout/Navbar'
 import Home from './pages/Home'
+import ChatWidget from './components/common/ChatWidget'
 
 // Create a client for React Query
 const queryClient = new QueryClient({
@@ -29,15 +30,16 @@ function App() {
             />
             <Route
               path="/admin"
-              element={
-                <div className="p-4">Admin Dashboard - Coming Soon</div>
-              }
+              element={<div className="p-4">Admin Dashboard - Coming Soon</div>}
             />
             <Route
               path="/login"
               element={<div className="p-4">Login Page - Coming Soon</div>}
             />
           </Routes>
+
+          {/* AI Chat Widget - Available on all pages */}
+          <ChatWidget />
         </div>
       </BrowserRouter>
     </QueryClientProvider>
