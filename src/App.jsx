@@ -2,6 +2,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import Navbar from './components/layout/Navbar'
 import Home from './pages/Home'
+import Properties from './pages/Properties'
+import PropertyDetails from './pages/PropertyDetails'
 import ChatWidget from './components/common/ChatWidget'
 
 // Create a client for React Query
@@ -23,11 +25,8 @@ function App() {
           <Navbar />
           <Routes>
             <Route path="/" element={<Home />} />
-            {/* Add more routes as needed */}
-            <Route
-              path="/properties"
-              element={<div className="p-4">Properties Page - Coming Soon</div>}
-            />
+            <Route path="/properties" element={<Properties />} />
+            <Route path="/properties/:id" element={<PropertyDetails />} />
             <Route
               path="/admin"
               element={<div className="p-4">Admin Dashboard - Coming Soon</div>}
