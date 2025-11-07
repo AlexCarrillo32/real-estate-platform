@@ -1,8 +1,6 @@
-import apiClient from './api'
-
 export const authService = {
   // Login
-  login: async (email, password) => {
+  login: async (email, _password) => {
     // Mock login - in production, this would call your backend API
     await new Promise(resolve => setTimeout(resolve, 1000))
 
@@ -27,7 +25,7 @@ export const authService = {
     // Mock registration - in production, this would call your backend API
     await new Promise(resolve => setTimeout(resolve, 1500))
 
-    const { email, password, name, role } = userData
+    const { email, name, role } = userData
 
     // Simulate API response
     const newUser = {
@@ -70,20 +68,20 @@ export const authService = {
         email: 'user@example.com',
         role: 'buyer',
       }
-    } catch (error) {
+    } catch (_error) {
       throw new Error('Authentication failed')
     }
   },
 
   // Password reset request
-  requestPasswordReset: async email => {
+  requestPasswordReset: async _email => {
     // Mock password reset request
     await new Promise(resolve => setTimeout(resolve, 1000))
     return { message: 'Password reset email sent' }
   },
 
   // Reset password
-  resetPassword: async (token, newPassword) => {
+  resetPassword: async (_token, _newPassword) => {
     // Mock password reset
     await new Promise(resolve => setTimeout(resolve, 1000))
     return { message: 'Password reset successful' }

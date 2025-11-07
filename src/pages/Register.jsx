@@ -33,7 +33,6 @@ function Register() {
   const { login } = useAuthStore()
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState(null)
-  const [passwordStrength, setPasswordStrength] = useState(0)
 
   const {
     register,
@@ -89,7 +88,7 @@ function Register() {
       } else {
         navigate('/properties')
       }
-    } catch (err) {
+    } catch (_err) {
       setError('Registration failed. Please try again.')
     } finally {
       setIsLoading(false)
@@ -189,9 +188,6 @@ function Register() {
                   errors.password ? 'border-red-500' : 'border-gray-300'
                 }`}
                 placeholder="Create a strong password"
-                onChange={e =>
-                  setPasswordStrength(calculatePasswordStrength(e.target.value))
-                }
               />
               {errors.password && (
                 <p className="mt-1 text-sm text-red-600">

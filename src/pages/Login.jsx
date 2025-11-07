@@ -52,7 +52,7 @@ function Login() {
       } else {
         navigate('/properties')
       }
-    } catch (err) {
+    } catch (_err) {
       setError('Invalid email or password')
     } finally {
       setIsLoading(false)

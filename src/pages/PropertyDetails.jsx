@@ -84,7 +84,7 @@ function PropertyDetails() {
         if (result.cost) updateCost(result.cost)
         if (result.tokens) updateTokens(result.tokens)
       }
-    } catch (error) {
+    } catch (_error) {
       setAnswer({
         text: 'Sorry, I encountered an error. Please try again.',
         isError: true,

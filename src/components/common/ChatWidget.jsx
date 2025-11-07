@@ -61,7 +61,7 @@ function ChatWidget() {
         if (result.cost) updateCost(result.cost)
         if (result.tokens) updateTokens(result.tokens)
       }
-    } catch (error) {
+    } catch (_error) {
       addMessage({
         role: 'assistant',
         content: 'Sorry, I encountered an error. Please try again.',
